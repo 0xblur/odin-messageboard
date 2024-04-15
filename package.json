@@ -1,0 +1,25 @@
+{
+  "name": "odin-messageboard",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "DEBUG=myapp:* bun ./bin/www",
+    "watch": "DEBUG=myapp:* bun watch ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-handlebars": "^7.1.2",
+    "handlebars": "^4.7.8",
+    "morgan": "~1.9.1"
+  },
+  "module": "app.js",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
