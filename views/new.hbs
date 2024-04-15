@@ -1,0 +1,29 @@
+<section class="post">
+  <h2>{{title}}</h2>
+  <form action="create" method="post">
+    <fieldset>
+      <label for="name">
+        Name:
+        <input
+          required
+          name="name"
+          type="text"
+          minlenght="3"
+          maxlength="15"
+          placeholder="It doesn't have to be a real one"
+        />
+      </label>
+      <label for="message">
+        Message:
+        <textarea
+          required
+          name="message"
+          id="message"
+          minlength="25"
+          maxlength="240"
+          placeholder="What's on your mind?"
+        ></textarea>
+      </label>
+    </fieldset>
+  </form>
+</section>
