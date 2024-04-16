@@ -1,8 +1,9 @@
-import { escapeExpression } from "handlebars";
+import { SafeString } from "handlebars";
 
 const helpers = {
-	or(left, right) {
-		return left || right || escapeExpression("");
+	strictOR(left, right) {
+		const result = left || right || null;
+		return result;
 	},
 };
 
