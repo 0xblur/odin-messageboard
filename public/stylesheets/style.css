@@ -85,3 +85,10 @@ main {
     }
   }
 }
+
+.brown-button {
+  background-color: var(--complementary-color);
+  color: white;
+  max-width: 100px;
+  max-height: 50px;
+}
