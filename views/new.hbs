@@ -9,9 +9,13 @@
           name="author"
           type="text"
           minlenght="3"
+          {{#if message.user}}
+            value={{message.user}}
+          {{else}}
+            value=""
+          {{/if}}
           maxlength="15"
           placeholder="It doesn't have to be a real one"
-          value={{or message.user ""}}
         />
       </label>
       <label for="message">
