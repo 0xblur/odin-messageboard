@@ -1,7 +1,7 @@
 import express from "express";
+import Controller from "../controllers/Controller.js";
 const router = express.Router();
 
-/* GET home page. */
 const mockDB = [
 	{
 		text: "Hi there!",
@@ -15,11 +15,24 @@ const mockDB = [
 	},
 ];
 
+const controller = new Controller(mockDB);
+
 router.get("/", (req, res, next) => {
 	res.render("index", {
 		title: "Message Board",
 		messages: mockDB,
 	});
+	console.log(mockDB);
 });
+
+router.get("/new", (req, res, next) => {
+	res.render("new", { title: "Add a new post" });
+});
+
+router.post(
+	"/new",
+	controller.createNewPost,
+	controller.handleCreateNewPost.bind(controller),
+);
 
 export default router;

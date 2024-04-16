@@ -1,5 +1,4 @@
 import { body, validationResult } from "express-validator";
-import mockDB from "../models/Posts.js";
 
 function Controller(db) {
 	this.db = db;
