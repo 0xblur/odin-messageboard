@@ -1,4 +1,5 @@
 import { ExpressHandlebars } from "express-handlebars";
+import customHelpers from "./views/helpers.js";
 import express from "express";
 import path from "node:path";
 import cookieParser from "cookie-parser";
@@ -11,6 +12,7 @@ const app = express();
 const hbs = new ExpressHandlebars({
 	extname: ".hbs",
 	defaultLayout: "base",
+	helpers: customHelpers,
 });
 
 const viewsDir = path.join(__dirname, "views");
