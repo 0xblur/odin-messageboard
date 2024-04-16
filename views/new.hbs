@@ -27,7 +27,11 @@
           minlength="25"
           maxlength="240"
           placeholder="What's on your mind?"
-        >{{or message.text ""}}</textarea>
+        >
+          {{~#if message.text~}}
+            {{~message.text~}}
+          {{~/if~}}
+        </textarea>
       </label>
     </fieldset>
     <button type="submit" class="brown-button">Submit</button>
