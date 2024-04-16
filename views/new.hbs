@@ -2,15 +2,16 @@
   <h2>{{title}}</h2>
   <form action="new" method="post">
     <fieldset>
-      <label for="name">
+      <label for="author">
         Name:
         <input
           required
-          name="name"
+          name="author"
           type="text"
           minlenght="3"
           maxlength="15"
           placeholder="It doesn't have to be a real one"
+          value={{or message.user ""}}
         />
       </label>
       <label for="message">
@@ -22,8 +23,14 @@
           minlength="25"
           maxlength="240"
           placeholder="What's on your mind?"
-        ></textarea>
+        >{{or message.text ""}}</textarea>
       </label>
     </fieldset>
+    <button type="submit" class="brown-button">Submit</button>
+    {{#if errors}}
+      {{#each errors}}
+        <p class="error">{{this.msg}}</p>
+      {{/each}}
+    {{/if}}
   </form>
 </section>
