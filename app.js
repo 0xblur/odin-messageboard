@@ -6,7 +6,6 @@ import cookieParser from "cookie-parser";
 import logger from "morgan";
 
 import indexRouter from "./routes/index.js";
-import newPostRouter from "./routes/new.js";
 
 const app = express();
 const hbs = new ExpressHandlebars({
@@ -27,6 +26,5 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/new", newPostRouter);
 
 export default app;
