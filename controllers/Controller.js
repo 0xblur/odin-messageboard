@@ -8,24 +8,28 @@ Controller.prototype.createNewPost = [
 	//BUG: Escaping adds unnecessary characters
 	body("author", "Name is invalid")
 		.trim()
-		.escape()
-		.isAlpha()
-		.withMessage("Only letters are acceptable.")
+		.notEmpty()
+		.withMessage("Name can't be empty")
+		.isAlphanumeric()
+		.withMessage("Name should contain only letters and numbers.")
 		.isLength({
 			min: 3,
 			max: 15,
 		})
-		.withMessage("Name should be between 3 and 15 characters."),
+		.withMessage("Name should be between 3 and 15 characters.")
+		.escape(),
 
-	body("message", "Message can't be empty")
+	body("message", "Message is invalid")
 		.trim()
-		.escape()
-		.isAlphanumeric()
-		.withMessage("Only letters and numbers are acceptable.")
+		.notEmpty()
+		.withMessage("Message can't be empty.")
+		.matches(/[\p{L}\p{N}\p{P}\p{S}\p{M}]+/gu)
+		.withMessage("You're using invalid characters")
 		.isLength({
 			max: 150,
 		})
-		.withMessage("Maximum 150 characters."),
+		.withMessage("Maximum 150 characters.")
+		.escape(),
 ];
 
 Controller.prototype.handleCreateNewPost = function (req, res, next) {
